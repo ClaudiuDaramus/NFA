@@ -5,7 +5,7 @@ using namespace std;
 
 struct node{
     int neighbour, total_neighbour;
-    char litera;
+    char letter;
 };
 
 struct node_queue{
@@ -98,7 +98,7 @@ int main()
         char c;
         f>>a>>b>>c;
         graf[a][++graf[a][0].total_neighbour].neighbour = b;
-        graf[a][graf[a][0].total_neighbour].litera = c;
+        graf[a][graf[a][0].total_neighbour].letter = c;
     }
 
     push(first, last, init);
@@ -123,7 +123,7 @@ int main()
 
             for(int j = 1; j <= graf[x][0].total_neighbour; j++)
             {
-                if(graf[x][j].litera == s[contor])
+                if(graf[x][j].letter == s[contor])
                 {
                     if(visited[graf[x][j].neighbour] == 0)
                         push(first, last, graf[x][j].neighbour);
