@@ -63,7 +63,7 @@ int size(node_queue *first)
 int main()
 {
     ifstream f("data.in");
-    node **graf = NULL;
+    node **graph = NULL;
     node_queue *first = NULL, *last = NULL;
     int final_state[100] = {0}, visited[100] = {0}, aux[100], n, m, init, nr_fin, x;
     char s[1000];
@@ -85,11 +85,11 @@ int main()
         return 0;
     }
 
-    graf = new node*[n];
+    graph = new node*[n];
     for(int i = 0; i <= n; i++)
     {
-        graf[i] = new node[100];
-        graf[i][0].total_neighbour = 0;
+        graph[i] = new node[100];
+        graph[i][0].total_neighbour = 0;
     }
 
     for(int i = 1; i <= m; i++)
@@ -97,8 +97,8 @@ int main()
         int a, b;
         char c;
         f>>a>>b>>c;
-        graf[a][++graf[a][0].total_neighbour].neighbour = b;
-        graf[a][graf[a][0].total_neighbour].letter = c;
+        graph[a][++graph[a][0].total_neighbour].neighbour = b;
+        graph[a][graph[a][0].total_neighbour].letter = c;
     }
 
     push(first, last, init);
@@ -121,13 +121,13 @@ int main()
         {
             x = aux[i];
 
-            for(int j = 1; j <= graf[x][0].total_neighbour; j++)
+            for(int j = 1; j <= graph[x][0].total_neighbour; j++)
             {
-                if(graf[x][j].letter == s[contor])
+                if(graph[x][j].letter == s[contor])
                 {
-                    if(visited[graf[x][j].neighbour] == 0)
-                        push(first, last, graf[x][j].neighbour);
-                    visited[graf[x][j].neighbour] = 1;
+                    if(visited[graph[x][j].neighbour] == 0)
+                        push(first, last, graph[x][j].neighbour);
+                    visited[graph[x][j].neighbour] = 1;
                 }
             }
         }
