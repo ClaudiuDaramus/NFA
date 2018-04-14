@@ -46,7 +46,7 @@ int pop(node_queue *&first, node_queue *&last)
     return val;
 }
 
-int marime(node_queue *first)
+int size(node_queue *first)
 {
     node_queue *p;
     p = first;
@@ -107,7 +107,7 @@ int main()
 
     while(first != NULL && contor < lungime_cuvant)
     {
-        int queue_length = marime(first), k = 0;
+        int queue_length = size(first), k = 0;
 
         for(int i = 0; i < queue_length; i++)
         {
